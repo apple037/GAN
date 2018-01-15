@@ -101,7 +101,7 @@ with tf.Session() as sess:
                                 feed_dict={z_placeholder: z_batch})
     generated_image = generated_image.reshape([28, 28])
     plt.imshow(generated_image, cmap='Greys')
-    plt.savefig("/img/test_img.png")
+    plt.savefig("C:\\Users\\IMIKM\\p\\GAN\\img\\test_img.png")
 
 
 """ For Training GAN """
@@ -205,7 +205,7 @@ for i in range(100000):
     
     if i % 1000 == 0:
         # Save the model every 1000 iteration
-        save_path = saver.save(sess, "/tmp/model{}.ckpt".format(i))
+        save_path = saver.save(sess, "C:\\Users\\IMIKM\p\\GAN\tmp\model{}.ckpt".format(i))
         print("Model saved in file: %s" % save_path)
 
     if i % 100 == 0:
@@ -215,7 +215,7 @@ for i in range(100000):
         generated_images = generator(z_placeholder, 1, z_dimensions)
         images = sess.run(generated_images, {z_placeholder: z_batch})
         plt.imshow(images[0].reshape([28, 28]), cmap='Greys')
-        plt.savefig("/img/image{}.png".format(i))
+        plt.savefig("C:\\Users\\IMIKM\p\\GAN\img\image{}.png".format(i))
 
         # Show discriminator's estimate
         im = images[0].reshape([1, 28, 28, 1])
